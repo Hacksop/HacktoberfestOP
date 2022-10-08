@@ -1,4 +1,3 @@
-import json
 import pymysql
 from flask import Flask, request, jsonify, make_response
 app = Flask(__name__)
@@ -7,7 +6,7 @@ app = Flask(__name__)
 def db_connection():
     conn = None
     try:
-        db_creds = yaml.load(open('creds.yaml'))
+        db_creds = yaml.load(open('creds'))
         conn = pymysql.connect(host=db_creds['RDS_host'],
                                user=db_creds['RDS_user'],
                                password=db_creds['RDS_pass'],
